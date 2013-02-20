@@ -28,21 +28,27 @@
           %a.brand(href="#") CvRb
           .container.nav-collapse
             %ul.nav
-
+              %li= link_to "Link 1", "/path1"
+              %li= link_to "Link 2", "/path2"
+              %li= link_to "Link 3", "/path3"
 
     .container-fluid
 
 
       .row-fluid
         .span3
-
+          .well.sidebar-nav
+            %ul.nav.nav-list
+              %li.nav-header Sidebar
+              %li= link_to "Link 1", "/path1"
+              %li= link_to "Link 2", "/path2"
+              %li= link_to "Link 3", "/path3"
         .span9
           = bootstrap_flash
           = yield
-          %p &copy; Anthony Alberto 2013
     
-
-
+      %footer
+        %p &copy; Anthony Alberto 2013
     /
       Javascripts
       \==================================================

@@ -33,16 +33,17 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  Capybara.current_driver = :webkit
   config.before :each do
-    if Capybara.current_driver == :selenium
-      require 'headless'
-
-      headless = Headless.new
-      headless.start
+    #if Capybara.current_driver == :selenium
+    #  require 'headless'
+    #
+    #  headless = Headless.new
+    #  headless.start
       DatabaseCleaner.strategy = :truncation
-    else
-      DatabaseCleaner.strategy = :transaction
-    end
+    #else
+    #  DatabaseCleaner.strategy = :transaction
+    #end
     DatabaseCleaner.start
   end
   config.after(:each) do
