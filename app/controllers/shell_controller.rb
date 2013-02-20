@@ -11,14 +11,13 @@ class ShellController < ApplicationController
       rescue SecurityError => e
         "Hackerz gonna hack #{e.inspect}"
       rescue SyntaxError
-        "Syntax Error"
+        "Syntax Error #{e.inspect}"
       rescue Exception
         "Unknown exception"
       end
     end
 
     @result = command.call
-    @result = ap @result #Find a way to send data from ap to a string
 
 
     render layout: false
