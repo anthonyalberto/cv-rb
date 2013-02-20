@@ -9,11 +9,11 @@ class ShellController < ApplicationController
       begin
         eval(params[:code])
       rescue SecurityError => e
-        "Hackerz gonna hack #{e.inspect}"
-      rescue SyntaxError
-        "Syntax Error #{e.inspect}"
-      rescue Exception
-        "Unknown exception"
+        "Gotcha! Hackers gonna hack => #{e.inspect}"
+      rescue SyntaxError => e
+        "Syntax Error => #{e.inspect}"
+      rescue Exception => e
+        "Unknown exception => #{e}"
       end
     end
 
