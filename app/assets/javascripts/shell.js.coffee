@@ -7,7 +7,6 @@ $ ->
            data: { code: $("input#code").val() },
            success: (data) ->
              $("div#log").html(data)
-
     )
 
 

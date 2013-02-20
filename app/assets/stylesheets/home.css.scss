@@ -8,5 +8,19 @@ $dark_back: #333;
 
 #intro_shell{
   height:50px;
+}
 
+#intro_shell #command_input, #intro_shell #prompt{
+  float: left;
+}
+#intro_shell #cursor{
+  margin-left:5px;
+  display: inline-block;
+  width:16px;
+  height:16px;
+  background-color: #00ff01;
+}
+
+.clear{
+  clear: both;
 }
