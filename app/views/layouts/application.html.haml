@@ -15,22 +15,32 @@
     %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72")
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
     %link(href="favicon.ico" rel="shortcut icon")
+    %link(href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css')
 
 
   %body
     .topbar
+      .topbar-inner
+        .container-fluid
+          .row-fluid
+            .span3
+            .span9
+              .brand irb> Candidate.where(name: "Anthony Alberto").first.shopify_cv
+              = yield(:logout)
 
-
-    .container-fluid
+    .clear
+    .container-fluid#main
 
 
       .row-fluid
         .span3
+          = yield(:left_menu)
 
         .span9
           = bootstrap_flash
           = yield
-          %p &copy; Anthony Alberto 2013
+    %footer
+      &copy; Anthony Alberto 2013
     
 
 

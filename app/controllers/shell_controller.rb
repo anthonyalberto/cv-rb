@@ -1,5 +1,4 @@
 class ShellController < ApplicationController
-  layout 'shell'
 
   def index
   end

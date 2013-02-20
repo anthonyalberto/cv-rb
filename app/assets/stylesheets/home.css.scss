@@ -1,26 +1,56 @@
 $dark_back: #333;
+$cursor_color: #00ff01;
 
-.topbar{
-  height: 50px;
-  background-color: $dark_back;
-  magin-bottom: 10px;
+body{
+  font-family: 'Inconsolata', sans-serif;
 }
+.topbar{
+  background-color: $dark_back;
+  margin-bottom: 30px;
 
+}
+.topbar .brand{
+  font-size:18px;
+  font-weight:bold;
+  color:white;
+}
+.topbar .row-fluid{
+  margin:20px 0px 10px;
+}
+.topbar-inner{
+  margin: 0 auto;
+}
+.container-fluid#main{
+  margin-bottom: 50px;
+}
 #intro_shell{
-  height:50px;
+  height: 70px;
+  line-height: 23px;
+  vertical-align: middle;
+  width: 800px;
+  background-color: $dark_back;
+  color:white;
+  padding: 20px;
+  box-shadow: 10px 10px 5px #888;
+  margin-bottom: 50px;
+
 }
 
 #intro_shell #command_input, #intro_shell #prompt{
   float: left;
 }
 #intro_shell #cursor{
-  margin-left:5px;
   display: inline-block;
-  width:16px;
-  height:16px;
-  background-color: #00ff01;
+  width:10px;
+  height:15px;
+  background-color: $cursor_color;
+  vertical-align: text-bottom;
 }
 
 .clear{
   clear: both;
+}
+
+footer{
+  text-align: center;
 }
