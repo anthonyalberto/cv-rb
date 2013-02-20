@@ -1,3 +1,12 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$dark_back: #333;
+
+.topbar{
+  height: 50px;
+  background-color: $dark_back;
+  magin-bottom: 10px;
+}
+
+#intro_shell{
+  height:50px;
+
+}

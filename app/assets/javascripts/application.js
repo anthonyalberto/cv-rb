@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery_ujs_extended
+//= require jquery.my.autotype
+//= require underscore
 //= require twitter/bootstrap
 //= require_tree .
