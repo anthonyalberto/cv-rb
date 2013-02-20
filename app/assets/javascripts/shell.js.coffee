@@ -1,3 +1,16 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+window.Shell ||= {}
+$ ->
+
+  Shell.submitCode = ->
+    $.ajax($("#prompt #url").val(),
+           type: "POST",
+           data: { code: $("input#code").val() },
+           success: (data) ->
+             $("div#log").html(data)
+
+    )
+
+
+  $("input#code").on("keyup", (e) ->
+    Shell.submitCode() if(e.keyCode == 13)
+  )

@@ -1,2 +1,7 @@
 %h1 Shell#index
-%p Find me in app/views/shell/index.html.haml
+#shell_container
+  #log
+    Enter a command below to start
+  #prompt
+    = text_field_tag :code
+    = hidden_field_tag :url, shell_update_path

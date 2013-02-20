@@ -4,5 +4,6 @@ class ShellController < ApplicationController
   end
 
   def update
+    render text: "YES !"
   end
 end

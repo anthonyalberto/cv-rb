@@ -1,7 +1,6 @@
 CvRb::Application.routes.draw do
   get "shell/index"
-
-  get "shell/update"
+  post "shell/update"
 
   devise_for :recruiters
 
