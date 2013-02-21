@@ -7,13 +7,15 @@ $ ->
       commandLine.append("<br/>")
 
   myFnShell.myShell =
-    typeline: (text, options = {}) ->
+    scrollBottom: ->
+      @.scrollTop(@[0].scrollHeight)
+    ,typeline: (text, options = {}) ->
       options['delay'] ||= [30..90]
       options['totalDelay'] ||= 0
       options['carriageReturn'] ||= true
       element = @
       setTimeout(->
-        element.children("#line").append "irb(main):001:0> &nbsp;"
+        element.children("#line").append "irb(main)> &nbsp;"
       , options['totalDelay'])
       splittedText = text.split ''
       for letter, index in text.split ''

@@ -1,23 +1,27 @@
 class ShellController < ApplicationController
-
   def index
   end
 
   def update
-    command = proc do
-      $SAFE = 3
-      begin
-        eval(params[:code])
-      rescue SecurityError => e
-        "Gotcha! Hackers gonna hack => #{e.inspect}"
-      rescue SyntaxError => e
-        "Syntax Error => #{e.inspect}"
-      rescue Exception => e
-        "Unknown exception => #{e}"
+
+    ActiveRecord::Base.class_eval do
+      alias_method :old_readonly?, :readonly?
+
+      def readonly?
+        true
       end
     end
 
-    @result = command.call
+    command = Shell.call_eval(params[:code])
+
+
+
+    @result = command
+
+
+    ActiveRecord::Base.class_eval do
+      alias_method :readonly?, :old_readonly?
+    end
 
 
     render layout: false

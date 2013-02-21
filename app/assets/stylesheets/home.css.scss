@@ -1,7 +1,6 @@
-$dark_back: #333;
-$cursor_color: #00ff01;
+@import "globals";
 
-body{
+body, input, select, textarea, button{
   font-family: 'Inconsolata', sans-serif;
 }
 .topbar{
@@ -28,7 +27,7 @@ body{
   line-height: 23px;
   vertical-align: middle;
   width: 800px;
-  background-color: $dark_back;
+  background-color: $shell_back;
   color:white;
   padding: 20px;
   box-shadow: 10px 10px 5px #888;

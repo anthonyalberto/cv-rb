@@ -1,3 +1,37 @@
-// Place all the styles related to the Shell controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "_globals.css.scss";
+
+#shell_container{
+  background-color: $shell_back;
+  color: white;
+  width: 800px;
+  border:2px solid #ccc;
+  border-radius: 5px;
+  padding-left: 15px;
+}
+
+#shell_container input[type="text"], #shell_container input:focus{
+  background-color: $shell_back;
+  color: $cursor_color;
+  border: 0px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  margin: -2px 0 0;
+  padding: 0;
+  width:700px;
+}
+
+#shell_container #log{
+  height: 400px;
+
+  overflow-y: auto;
+}
+
+#shell_container pre{
+  display: inline;
+  padding: 0;
+  background-color: $shell_back;
+  color: white;
+  margin: 0;
+  border: 0;
+
+}

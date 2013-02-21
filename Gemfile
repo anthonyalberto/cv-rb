@@ -31,7 +31,6 @@ gem 'rmagick'
 gem 'kaminari'
 gem 'devise'
 gem 'draper', '~> 1.0'
-
 gem "awesome_print"
 gem 'pry-rails'
 # To use ActiveModel has_secure_password
