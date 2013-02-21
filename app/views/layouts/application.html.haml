@@ -23,22 +23,18 @@
       .topbar-inner
         .container-fluid
           .row-fluid
-            .span3
-            .span9
-              .brand irb> Candidate.where(name: "Anthony Alberto").first.shopify_cv
-              = yield(:logout)
+            .brand irb> Candidate.where(name: "Anthony Alberto").first.shopify_cv
+            = yield(:logout)
 
     .clear
     .container-fluid#main
 
 
       .row-fluid
-        .span3
-          = yield(:left_menu)
+        = yield(:left_menu)
 
-        .span9
-          = bootstrap_flash
-          = yield
+        = bootstrap_flash
+        = yield
     %footer
       &copy; Anthony Alberto 2013
     

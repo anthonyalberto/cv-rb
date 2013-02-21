@@ -19,6 +19,10 @@ body, input, select, textarea, button{
 .topbar-inner{
   margin: 0 auto;
 }
+.container-fluid{
+  width: 1000px;
+  margin: 0 auto;
+}
 .container-fluid#main{
   margin-bottom: 50px;
 }
@@ -26,7 +30,6 @@ body, input, select, textarea, button{
   height: 70px;
   line-height: 23px;
   vertical-align: middle;
-  width: 800px;
   background-color: $shell_back;
   color:white;
   padding: 20px;
