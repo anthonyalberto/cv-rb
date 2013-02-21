@@ -3,27 +3,7 @@ class ShellController < ApplicationController
   end
 
   def update
-
-    ActiveRecord::Base.class_eval do
-      alias_method :old_readonly?, :readonly?
-
-      def readonly?
-        true
-      end
-    end
-
-    command = Shell.call_eval(params[:code])
-
-
-
-    @result = command
-
-
-    ActiveRecord::Base.class_eval do
-      alias_method :readonly?, :old_readonly?
-    end
-
-
+    @result = Shell.call_eval(params[:code])
     render layout: false
   end
 end
