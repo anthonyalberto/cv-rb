@@ -1,13 +1,14 @@
 class Shell
   require 'stringio'
 
-  attr_accessor :result
+  attr_accessor :result, :status
 
   def initialize(code)
     @result = ""
     @code = code
     @string_io = StringIO.new
     @std_out = $stdout
+    @status = ""
   end
 
   def call_eval
@@ -42,7 +43,14 @@ class Shell
       $SAFE = 3
       ActiveRecord::Base.transaction do
         @result = eval(@code)
-        @result = @string_io.string.gsub("\n", "") if @code =~ /puts|print/i
+        if @code =~ /puts|print/i
+          @result = @string_io.string.gsub("\n", "")
+          @status = 'print'
+        elsif @code =~ /[^=]=[^=]/
+          @status = 'assignment'
+        else
+          @status = 'success'
+        end
         raise ActiveRecord::Rollback.new
       end
     }
@@ -55,10 +63,13 @@ class Shell
       yield
     rescue SecurityError => e
       @result = "Gotcha! Hackers gonna hack => #{e.inspect}"
+      @status = "exception"
     rescue SyntaxError => e
       @result = "Syntax Error => #{e.inspect}"
+      @status = "exception"
     rescue Exception => e
       @result = "Unknown exception => #{e}"
+      @status = "exception"
     end
     end_execution
   end

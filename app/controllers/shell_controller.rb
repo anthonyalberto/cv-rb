@@ -3,7 +3,8 @@ class ShellController < ApplicationController
   end
 
   def update
-    @result = Shell.new(params[:code]).call_eval
-    render layout: false
+    @shell = Shell.new(params[:code])
+    @result = @shell.call_eval
+    render format: :json
   end
 end

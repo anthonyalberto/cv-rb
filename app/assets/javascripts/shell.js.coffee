@@ -4,6 +4,7 @@ $ ->
     history:
       currentIndex: 0
       commands: [""]
+      replayCommands: []
       up: ->
         Shell.history.currentIndex -=  1 if Shell.history.currentIndex > 0
         Shell.setCommand(Shell.history.commands[Shell.history.currentIndex])
@@ -19,15 +20,24 @@ $ ->
       Shell.submitted = true
       command = Shell.currentCommand()
       Shell.history.commands.push(command)
+
+      fullCommand = Shell.history.replayCommands.join(";") + ";#{command}"
+      console.log fullCommand
       Shell.history.currentIndex += 1
 
       $.ajax($("#prompt #url").val(),
              type: "POST",
-             data: { code: command },
-             success: (data) ->
+             dataType: 'json',
+             data: { code: fullCommand },
+             success: (jsonData) ->
                $("input#command_line").val("")
-               $("div#log").append("<br/>irb(main)> #{command}<br/>#{data}").scrollBottom()
+               $("div#log").append("<br/>irb(main)> #{command}<br/>#{jsonData.html}").scrollBottom()
+               Shell.history.replayCommands.push command if jsonData.status == "assignment"
                Shell.history.currentIndex = Shell.history.commands.length
+             , error: (e) ->
+               $("div#log").append("<br/>irb(main)> #{command}<br/>Wooow something bad happened, what did you try??").scrollBottom()
+             , complete: ->
+               $("input#command_line").val("")
                Shell.submitted = false
 
       )
