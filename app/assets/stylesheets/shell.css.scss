@@ -8,7 +8,9 @@
   border-radius: 5px;
   padding-left: 15px;
 }
-
+.console_error{
+  color:red;
+}
 #shell_container input[type="text"], #shell_container input:focus{
   background-color: $shell_back;
   color: $cursor_color;

@@ -29,17 +29,17 @@ $ ->
              type: "POST",
              dataType: 'json',
              data: { code: fullCommand },
+             timeout: 3000,
              success: (jsonData) ->
                $("input#command_line").val("")
                $("div#log").append("<br/>irb(main)> #{command}<br/>#{jsonData.html}").scrollBottom()
                Shell.history.replayCommands.push command if jsonData.status == "assignment"
                Shell.history.currentIndex = Shell.history.commands.length
              , error: (e) ->
-               $("div#log").append("<br/>irb(main)> #{command}<br/>Wooow something bad happened, what did you try??").scrollBottom()
+               $("div#log").append("<br/>irb(main)> #{command}<br/><div class='console_error'>Wooow something bad happened, what did you try??</div>").scrollBottom()
              , complete: ->
                $("input#command_line").val("")
                Shell.submitted = false
-
       )
 
   $(document).on("keydown", (e) ->
@@ -47,7 +47,9 @@ $ ->
   )
 
   $("input#command_line").on("keydown", (e) ->
-    Shell.history.up() if(e.keyCode == 38)
+    if(e.keyCode == 38)
+      e.preventDefault()
+      Shell.history.up()
     Shell.history.down() if(e.keyCode == 40)
   )
 
