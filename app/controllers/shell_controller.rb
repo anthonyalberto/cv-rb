@@ -3,7 +3,7 @@ class ShellController < ApplicationController
   end
 
   def update
-    @result = Shell.call_eval(params[:code])
+    @result = Shell.new(params[:code]).call_eval
     render layout: false
   end
 end
