@@ -12,10 +12,8 @@ class Shell
 
   def call_eval
     prepare_shell_and_catch_exceptions do
-      proc = get_proc_eval
-      proc.call
+      get_proc_eval.call
     end
-
     @result
   end
 
