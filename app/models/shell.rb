@@ -44,11 +44,6 @@ class Shell
 
   def get_proc_eval
     proc {
-      if Rails.env.test? #Relax security in order to make the specs pass ...
-        $SAFE = 2
-      else
-        $SAFE = 3
-      end
       ActiveRecord::Base.transaction do
         @result = eval(@code)
         if @code =~ /puts|print/i

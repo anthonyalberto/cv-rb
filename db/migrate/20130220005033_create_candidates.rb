@@ -5,6 +5,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :email, null: false
       t.string :phone, null: false
       t.string :current_status
+      t.text :general_information
 
       t.timestamps
     end

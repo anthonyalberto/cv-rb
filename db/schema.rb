@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220010517) do
+ActiveRecord::Schema.define(:version => 20130222213412) do
 
   create_table "candidates", :force => true do |t|
-    t.string   "name",           :null => false
-    t.string   "email",          :null => false
-    t.string   "phone",          :null => false
+    t.string   "name",                :null => false
+    t.string   "email",               :null => false
+    t.string   "phone",               :null => false
     t.string   "current_status"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.text     "general_information"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "cats", :force => true do |t|
@@ -35,10 +36,9 @@ ActiveRecord::Schema.define(:version => 20130220010517) do
   create_table "educations", :force => true do |t|
     t.integer  "candidate_id", :null => false
     t.string   "name",         :null => false
-    t.date     "date_from",    :null => false
-    t.date     "date_to",      :null => false
+    t.integer  "year_from",    :null => false
+    t.integer  "year_to",      :null => false
     t.text     "description"
-    t.string   "url"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -48,15 +48,35 @@ ActiveRecord::Schema.define(:version => 20130220010517) do
   create_table "experiences", :force => true do |t|
     t.integer  "candidate_id", :null => false
     t.string   "name",         :null => false
-    t.date     "date_from",    :null => false
-    t.date     "date_to",      :null => false
+    t.integer  "year_from",    :null => false
+    t.integer  "year_to",      :null => false
     t.text     "description"
+    t.text     "key_facts"
     t.string   "url"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
   add_index "experiences", ["candidate_id"], :name => "index_experiences_on_candidate_id"
+
+  create_table "funny_links", :force => true do |t|
+    t.integer  "candidate_id", :null => false
+    t.string   "name",         :null => false
+    t.string   "url",          :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "funny_links", ["candidate_id"], :name => "index_funny_links_on_candidate_id"
+
+  create_table "hobbies", :force => true do |t|
+    t.integer  "candidate_id", :null => false
+    t.string   "name",         :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "hobbies", ["candidate_id"], :name => "index_hobbies_on_candidate_id"
 
   create_table "motivations", :force => true do |t|
     t.integer  "candidate_id", :null => false
