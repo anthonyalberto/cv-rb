@@ -9,7 +9,12 @@ $ ->
   myFnShell.myShell =
     scrollBottom: ->
       @.scrollTop(@[0].scrollHeight)
-    ,typeline: (text, options = {}) ->
+
+    appendScrollBottom: (html) ->
+      @.append(html)
+      @.scrollBottom
+
+    typeline: (text, options = {}) ->
       options['delay'] ||= [30..90]
       options['totalDelay'] ||= 0
       options['carriageReturn'] ||= true
