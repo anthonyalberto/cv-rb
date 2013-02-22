@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220014419) do
+ActiveRecord::Schema.define(:version => 20130220010517) do
 
   create_table "candidates", :force => true do |t|
     t.string   "name",           :null => false
@@ -80,11 +80,15 @@ ActiveRecord::Schema.define(:version => 20130220014419) do
 
   create_table "pictures", :force => true do |t|
     t.integer  "owner_id",   :null => false
+    t.integer  "owner_type", :null => false
     t.string   "picture",    :null => false
     t.string   "legend"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "pictures", ["owner_id", "owner_type"], :name => "index_pictures_on_owner_id_and_owner_type"
+  add_index "pictures", ["owner_id"], :name => "index_pictures_on_owner_id"
 
   create_table "profile_links", :force => true do |t|
     t.integer  "candidate_id", :null => false
@@ -114,23 +118,16 @@ ActiveRecord::Schema.define(:version => 20130220014419) do
   add_index "recruiters", ["email"], :name => "index_recruiters_on_email", :unique => true
   add_index "recruiters", ["reset_password_token"], :name => "index_recruiters_on_reset_password_token", :unique => true
 
-  create_table "shells", :force => true do |t|
-    t.text     "code_buffer"
-    t.integer  "recruiter_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "shells", ["recruiter_id"], :name => "index_shells_on_recruiter_id"
-
   create_table "skills", :force => true do |t|
     t.string   "name",       :null => false
     t.integer  "owner_id",   :null => false
+    t.string   "owner_type", :null => false
     t.string   "level",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "skills", ["owner_id", "owner_type"], :name => "index_skills_on_owner_id_and_owner_type"
   add_index "skills", ["owner_id"], :name => "index_skills_on_owner_id"
 
 end

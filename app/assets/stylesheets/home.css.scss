@@ -3,10 +3,23 @@
 body, input, select, textarea, button{
   font-family: 'Inconsolata', sans-serif;
 }
+
+#fork_me img{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+
+#logout{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 .topbar{
   background-color: $dark_back;
   margin-bottom: 30px;
-
 }
 .topbar .brand{
   font-size:18px;
@@ -15,6 +28,10 @@ body, input, select, textarea, button{
 }
 .topbar .row-fluid{
   margin:20px 0px 10px;
+
+}
+.topbar .container-fluid{
+  position: relative;
 }
 .topbar-inner{
   margin: 0 auto;

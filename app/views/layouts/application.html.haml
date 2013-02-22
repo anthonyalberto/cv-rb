@@ -23,21 +23,19 @@
       .topbar-inner
         .container-fluid
           .row-fluid
-            .brand irb> Candidate.where(name: "Anthony Alberto").first.shopify_cv
+            .brand irb> Candidate.includes(:cats).where(name: "Anthony Alberto").first.shopify_cv
             = yield(:logout)
 
     .clear
     .container-fluid#main
-
-
       .row-fluid
         = yield(:left_menu)
-
         = bootstrap_flash
         = yield
     %footer
       &copy; Anthony Alberto 2013
-    
+
+    = fork_me_tag
 
 
     /
