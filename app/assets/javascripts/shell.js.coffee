@@ -7,10 +7,11 @@ $ ->
       Konami.konamiBuffer.push(e.keyCode)
       Konami.konamiBuffer = Konami.konamiBuffer[-10..-1]
       Konami.triggerMenu() if Konami.konamiBuffer.toString() == Konami.konamiSequence
-        
+
     triggerMenu: ->
       Shell.setCommand("")
       $("#cheat_menu").show()
+  #End window.Konami
 
 
   window.Shell =
@@ -58,7 +59,7 @@ $ ->
              complete: ->
                $("input#command_line").val("")
                Shell.submitted = false
-
+  #End window.Shell
 
   $(document).on "keydown", (e) ->
     $("input#command_line").focus() if !e.ctrlKey

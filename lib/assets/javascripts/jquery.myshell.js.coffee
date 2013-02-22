@@ -23,7 +23,7 @@ $ ->
         element.children("#line").append "irb(main)> &nbsp;"
       , options['totalDelay'])
       splittedText = text.split ''
-      for letter, index in text.split ''
+      for letter in text.split ''
         options['totalDelay'] += _.shuffle(options['delay'])[0]
         setTimeout ->
           letter = splittedText.shift()
@@ -31,6 +31,7 @@ $ ->
         , options['totalDelay']
       setTimeout($.carriageReturn, options['totalDelay'] + 50, element.siblings("#prompt"), element.children("#line")) if options['carriageReturn'] != "false"
       options['totalDelay']
+  #End myFnShell.mySHell
 
   $.fn.extend(myFnShell.myShell)
   $.extend(myStaticShell.myShell)
