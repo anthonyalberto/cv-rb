@@ -35,6 +35,7 @@ gem "awesome_print"
 gem 'pry-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'seed-fu'
 
 group :development do
   gem 'better_errors', git: "https://github.com/anthonyalberto/better_errors.git"

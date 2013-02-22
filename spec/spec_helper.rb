@@ -9,7 +9,6 @@ require 'rspec/autorun'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
-  config.include Helpers
   config.mock_framework = :mocha
 
   config.include Devise::TestHelpers, type: "controller"
@@ -34,22 +33,16 @@ RSpec.configure do |config|
   config.order = "random"
 
   Capybara.current_driver = :webkit
-  config.before :each do
-    #if Capybara.current_driver == :selenium
-    #  require 'headless'
-    #
-    #  headless = Headless.new
-    #  headless.start
-      DatabaseCleaner.strategy = :truncation
-    #else
-    #  DatabaseCleaner.strategy = :transaction
-    #end
+
+  config.before(:suite) do
     DatabaseCleaner.start
-  end
-  config.after(:each) do
-    DatabaseCleaner.clean
+    SeedFu.seed
+    DatabaseCleaner.strategy = :truncation
   end
 
+  config.after(:suite) do
+    DatabaseCleaner.clean
+  end
 
 
 end

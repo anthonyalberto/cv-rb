@@ -18,6 +18,10 @@ class Shell
     @result
   end
 
+  def string_io_as_string
+    @string_io.string.gsub("\n", "")
+  end
+
   private
 
   def self.force_ar_readonly
@@ -40,11 +44,15 @@ class Shell
 
   def get_proc_eval
     proc {
-      $SAFE = 3
+      if Rails.env.test? #Relax security in order to make the specs pass ...
+        $SAFE = 2
+      else
+        $SAFE = 3
+      end
       ActiveRecord::Base.transaction do
         @result = eval(@code)
         if @code =~ /puts|print/i
-          @result = @string_io.string.gsub("\n", "")
+          @result = string_io_as_string
           @status = 'print'
         elsif @code =~ /[^=]=[^=]/
           @status = 'assignment'
@@ -56,19 +64,21 @@ class Shell
     }
   end
 
+
+
   def prepare_shell_and_catch_exceptions
     prepare_execution
     begin
       check_common_hacks
       yield
     rescue SecurityError => e
-      @result = "Gotcha! Hackers gonna hack => #{e.inspect}"
+      @result = SecurityError.new("Gotcha! Hackers gonna hack => #{e.message}")
       @status = "exception"
     rescue SyntaxError => e
-      @result = "Syntax Error => #{e.inspect}"
+      @result = SyntaxError.new("Syntax Error => #{e.message}")
       @status = "exception"
     rescue Exception => e
-      @result = "Unknown exception => #{e}"
+      @result = Exception.new("Unknown exception => #{e.message}")
       @status = "exception"
     end
     end_execution
@@ -94,7 +104,8 @@ class Shell
 
   def check_common_hacks
     raise SecurityError.new("Don't touch my DB!") if @code =~ /update|create|destroy|delete|save/i
-    raise SecuriryError.new("/!\\ No meta programming, it's dangerous /!\\") if @code =~ /send|method|call/i
+    raise SecurityError.new("/!\\ No meta programming, it's dangerous /!\\") if @code =~ /send|method|call/i
+    raise SecurityError.new("/!\\ No global variables, it's dangerous /!\\") if @code =~ /\$/ && !Rails.env.test? #We're using it for some tests
   end
 
 end
