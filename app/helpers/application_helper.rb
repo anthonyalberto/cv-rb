@@ -15,4 +15,8 @@ module ApplicationHelper
       link_to "Logout", destroy_recruiter_session_path, method: :delete, class: "btn", id: "logout"
     end
   end
+
+  def reset_shell_button
+    link_to "Reset Shell", "#reset", class: "btn btn-danger", id: "reset_shell"
+  end
 end
