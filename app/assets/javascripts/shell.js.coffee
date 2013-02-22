@@ -1,4 +1,18 @@
 $ ->
+
+  window.Konami =
+    konamiBuffer: []
+    konamiSequence: '38,38,40,40,37,39,37,39,66,65'
+    detectKonami: (e) ->
+      Konami.konamiBuffer.push(e.keyCode)
+      Konami.konamiBuffer = Konami.konamiBuffer[-10..-1]
+      Konami.triggerMenu() if Konami.konamiBuffer.toString() == Konami.konamiSequence
+        
+    triggerMenu: ->
+      Shell.setCommand("")
+      $("#cheat_menu").show()
+
+
   window.Shell =
     submitted: false
 
@@ -49,6 +63,7 @@ $ ->
   $(document).on "keydown", (e) ->
     $("input#command_line").focus() if !e.ctrlKey
 
+  $(document).on "keydown", Konami.detectKonami
 
   $("input#command_line").on "keydown", (e) ->
     if(e.keyCode == 38)
@@ -63,5 +78,7 @@ $ ->
 
   $("#reset_shell").on "click", (e) ->
     location.reload()
+
+
 
 
