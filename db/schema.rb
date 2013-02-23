@@ -78,15 +78,6 @@ ActiveRecord::Schema.define(:version => 20130222213412) do
 
   add_index "hobbies", ["candidate_id"], :name => "index_hobbies_on_candidate_id"
 
-  create_table "motivations", :force => true do |t|
-    t.integer  "candidate_id", :null => false
-    t.string   "name",         :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "motivations", ["candidate_id"], :name => "index_motivations_on_candidate_id"
-
   create_table "open_source_projects", :force => true do |t|
     t.integer  "candidate_id", :null => false
     t.string   "name",         :null => false

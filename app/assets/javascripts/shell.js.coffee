@@ -35,6 +35,10 @@ $ ->
     currentCommand: ->
       $("input#command_line").val()
 
+    firePopup: (data) ->
+      $('#popup').html(data)
+      $('.modal').modal('show', keyboard: true)
+
     submitCode: ->
       return if Shell.submitted || Shell.currentCommand() == ""
       Shell.submitted = true
@@ -51,11 +55,15 @@ $ ->
              timeout: 3000
              success: (jsonData) ->
                $("input#command_line").val("")
-               $("div#log").append("<br/>irb(main)> #{command}<br/>#{jsonData.html}").scrollBottom()
+               $("div#log").append("<br/>irb(main)> #{command}<br/>").scrollBottom()
+               if /decorator_modal/.test(jsonData.html)
+                 Shell.firePopup(jsonData.html)
+               else
+                 $("div#log").append(jsonData.html).scrollBottom()
                Shell.history.replayCommands.push command if jsonData.status == "assignment"
                Shell.history.currentIndex = Shell.history.commands.length
              error: (e) ->
-               $("div#log").appendScrollBottom("<br/>irb(main)> #{command}<br/><div class='console_error'>Wooow something bad happened, what did you try??</div>")
+               $("div#log").append("<br/>irb(main)> #{command}<br/><div class='console_error'>Wooow something bad happened, what did you try??</div>").scrollBottom()
              complete: ->
                $("input#command_line").val("")
                Shell.submitted = false

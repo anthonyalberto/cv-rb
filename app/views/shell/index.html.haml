@@ -6,8 +6,10 @@
 #shell_container
   #log_container
     #log
-      Enter a command below to start
+      .instructions
+        Enter a command below to start
   #prompt
     irb(main)>
     = text_field_tag :code, "", id: "command_line", placeholder: "Input your code here!"
     = hidden_field_tag :url, shell_update_path
+

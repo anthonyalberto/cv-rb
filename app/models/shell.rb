@@ -60,22 +60,28 @@ class Shell
   end
 
 
-
   def prepare_shell_and_catch_exceptions
-    prepare_execution
-    begin
-      check_common_hacks
-      yield
-    rescue SecurityError => e
-      @result = SecurityError.new("Gotcha! Hackers gonna hack => #{e.message}")
-      @status = "exception"
-    rescue SyntaxError => e
-      @result = SyntaxError.new("Syntax Error => #{e.message}")
-      @status = "exception"
-    rescue Exception => e
-      @result = Exception.new("Unknown exception => #{e.message}")
-      @status = "exception"
+
+    staged_execution do
+      begin
+        check_common_hacks
+        yield
+      rescue SecurityError => e
+        @result = SecurityError.new("Gotcha! Hackers gonna hack => #{e.message}")
+        @status = "exception"
+      rescue SyntaxError => e
+        @result = SyntaxError.new("Syntax Error => #{e.message}")
+        @status = "exception"
+      rescue Exception => e
+        @result = Exception.new("Unknown exception => #{e.message}")
+        @status = "exception"
+      end
     end
+  end
+
+  def staged_execution
+    prepare_execution
+    yield
     end_execution
   end
 

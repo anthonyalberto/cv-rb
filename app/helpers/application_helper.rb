@@ -1,7 +1,11 @@
 module ApplicationHelper
 
   def render_result(result)
-    (ap(result).gsub(/<([^>]*:0x[^>]*)>/, '\1')).to_json
+    if result.is_a? String
+      result.to_json
+    else
+      (ap(result).gsub(/<([^>]*:0x[^>]*)>/, '\1')).to_json
+    end
   end
 
   def fork_me_tag
@@ -18,5 +22,11 @@ module ApplicationHelper
 
   def reset_shell_button
     link_to "Reset Shell", "#reset", class: "btn btn-danger", id: "reset_shell"
+  end
+
+  def instructions
+    content_tag "div", class: "instructions" do
+      yield
+    end
   end
 end

@@ -10,10 +10,6 @@ $ ->
     scrollBottom: ->
       @.scrollTop(@[0].scrollHeight)
 
-    appendScrollBottom: (html) ->
-      @.append(html)
-      @.scrollBottom
-
     typeline: (text, options = {}) ->
       options['delay'] ||= [30..90]
       options['totalDelay'] ||= 0
