@@ -29,4 +29,10 @@ module ApplicationHelper
       yield
     end
   end
+
+  def strong_then_normal(strong, normal)
+    content_tag :span do
+      content_tag('strong', strong) + " #{normal}"
+    end
+  end
 end

@@ -1,7 +1,18 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    %h3 Cats
+    .clear
   = modal_body do
-    %p= candidate.general_information
+    - candidate.cats.each do |c|
+      .half_body{class: (c == candidate.cats.first) && "first"}
+        .pic_container
+          %h3.pic_title= c.name
+          = image_tag c.pictures.first.picture.main.url, class: "img-rounded"
+          %br= strong_then_normal "Breed:", c.breed
+          = strong_then_normal "Current Status:", c.current_status
 
+        %h3 Skills
+        %ul
+          - c.skills.each do |s|
+            %li= strong_then_normal "#{s.level}:", s.name

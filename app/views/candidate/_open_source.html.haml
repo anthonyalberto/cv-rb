@@ -1,7 +1,13 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    = modal_image_tag :open_source
+    %h2.title Open Source Contributions
+    .clear
   = modal_body do
-    %p= candidate.general_information
-
+    - candidate.open_source_projects.each do |o|
+      .body_block
+        %h3= o.name
+        %p
+          = o.description
+          %br= link_to o.url, o.url, target: "_blank"

@@ -3,6 +3,7 @@ class CreateCats < ActiveRecord::Migration
     create_table :cats do |t|
       t.belongs_to :candidate, null: false
       t.string :name, null: false
+      t.string :breed, null: false
       t.string :current_status
 
       t.timestamps

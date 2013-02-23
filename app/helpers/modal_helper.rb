@@ -19,4 +19,9 @@ module ModalHelper
     end
   end
 
+
+  def modal_image_tag(name)
+    image_tag "candidate/#{name.to_s}.jpg", class: "img-rounded", height: 200
+  end
+
 end

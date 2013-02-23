@@ -1,3 +1,59 @@
-#popup{
+$modal_width: 800px;
+$modal_img_width: 150px;
 
+.modal-header{
+  clear: right;
+}
+.modal-header img{
+  width: 150px;
+  float: left;
+}
+.modal-header h2{
+  line-height: 150px;
+  margin: 0;
+  float: left;
+  text-align: center;
+  width: $modal_width - $modal_img_width - 80;
+}
+
+#popup .modal{
+  width: $modal_width;
+  left:50%;
+  margin-left: -($modal_width / 2);
+}
+
+.modal-body h3{
+  font-size: 18px;
+  line-height:25px;
+  margin: 0px;
+}
+
+.modal-body .subtitle{
+  margin: 0px 0 8px;
+  padding: 0px;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.modal-body .subsection_title{
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.modal-body .body_block{
+  margin-bottom:20px;
+}
+
+.modal-body .half_body{
+  width: 45%;
+  float: left;
+  padding: 0 2%;
+}
+.modal-body .half_body.first{
+  border-right: 1px solid #ccc;
+}
+
+.modal-body .pic_container{
+  text-align: center;
+  margin-bottom:25px;
 }

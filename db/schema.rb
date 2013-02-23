@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130222213412) do
   create_table "cats", :force => true do |t|
     t.integer  "candidate_id",   :null => false
     t.string   "name",           :null => false
+    t.string   "breed",          :null => false
     t.string   "current_status"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
@@ -93,7 +94,6 @@ ActiveRecord::Schema.define(:version => 20130222213412) do
     t.integer  "owner_id",   :null => false
     t.integer  "owner_type", :null => false
     t.string   "picture",    :null => false
-    t.string   "legend"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

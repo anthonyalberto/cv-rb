@@ -1,7 +1,12 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    = modal_image_tag :education
+    %h2.title Education
+    .clear
   = modal_body do
-    %p= candidate.general_information
-
+    - candidate.educations.each do |e|
+      .body_block
+        %h3= e.name
+        %p.subtitle= "From #{e.year_from} to #{e.year_to}"
+        %p= e.description

@@ -1,7 +1,15 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    = modal_image_tag :work_experience
+    %h2.title Work Experience
+    .clear
   = modal_body do
-    %p= candidate.general_information
-
+    - candidate.experiences.each do |w|
+      .body_block
+        %h3= w.name
+        %p.subtitle= "From #{w.year_from} to #{w.year_to}"
+        %p= w.description
+        %p
+          .subsection_title Main Accomplishments
+          = raw decorator.markdown.render(w.key_facts)

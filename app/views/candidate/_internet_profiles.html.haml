@@ -1,7 +1,10 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    = modal_image_tag :internet_profiles
+    %h2.title Internet Profiles
+    .clear
   = modal_body do
-    %p= candidate.general_information
-
+    %ul
+      - candidate.profile_links.each do |p|
+        %li= link_to p.name, p.url, target: "_blank"

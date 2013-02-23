@@ -1,7 +1,10 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    = modal_image_tag :skills
+    %h2.title Skills
+    .clear
   = modal_body do
-    %p= candidate.general_information
-
+    %ul
+      - candidate.skills.each do |s|
+        %li= "#{s.level}: #{s.name}"

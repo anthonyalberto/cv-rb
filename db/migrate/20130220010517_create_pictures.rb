@@ -4,7 +4,6 @@ class CreatePictures < ActiveRecord::Migration
       t.integer :owner_id, null: false
       t.integer :owner_type, null: false
       t.string :picture, null: false
-      t.string :legend
 
       t.timestamps
     end
