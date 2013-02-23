@@ -1,7 +1,13 @@
 / decorator_modal
 = modal_tag do
   = modal_header do
-    %h3= candidate.name
+    = modal_image_tag :general_information
+    %h2.title= candidate.name
+    .clear
   = modal_body do
-    %p= candidate.general_information
-
+    .body_block
+      %h3 Abstract
+      %p= candidate.general_information
+    .body_block
+      %h3 Additional Information
+      = decorator.ul_additional_information
