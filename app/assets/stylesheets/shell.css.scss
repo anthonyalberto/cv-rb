@@ -89,12 +89,23 @@
 }
 
 
-//.explanations_container{
-//  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #eee), color-stop(0.25, #eee), color-stop(0.25, #fff), color-stop(0.5, #fff), color-stop(0.5, #eee), color-stop(0.75, #eee), color-stop(0.75, #fff));
-//  background-image: -webkit-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
-//  background-image: -moz-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
-//  background-image: -ms-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
-//  background-image: -o-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
-//background-image: linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
-//background-size: 30px 30px;
-//  }
+.invader {
+  box-shadow:
+      -4px -2px white, 4px -2px white,
+      -4px -2px 0 2px, 0 -2px 0 2px, 4px -2px 0 2px,
+      -4px 0 0 2px, 0 0 0 2px, 4px 0 0 2px,
+      -6px -8px, 6px -8px,
+      -4px -6px, 4px -6px,
+      -8px -2px, 8px -2px,
+      -10px 0, -8px 0, 8px 0, 10px 0,
+      -10px 2px, 10px 2px,
+      -10px 4px, -6px 4px, 6px 4px, 10px 4px,
+      -4px 6px, -2px 6px, 2px 6px, 4px 6px;
+  color: black;
+  background: black;
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  margin: 0 11px 3px;
+  overflow: hidden;
+}
