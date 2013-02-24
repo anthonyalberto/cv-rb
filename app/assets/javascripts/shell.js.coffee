@@ -6,11 +6,14 @@ $ ->
     detectKonami: (e) ->
       Konami.konamiBuffer.push(e.keyCode)
       Konami.konamiBuffer = Konami.konamiBuffer[-10..-1]
-      Konami.triggerMenu() if Konami.konamiBuffer.toString() == Konami.konamiSequence
+
+      if Konami.konamiBuffer.toString() == Konami.konamiSequence
+        new Audio("/sounds/pacman.wav").play();
+        Konami.triggerMenu()
 
     triggerMenu: ->
       Shell.setCommand("")
-      $("#cheat_menu").show()
+      $("#cheat_menu").fadeIn(3000)
   #End window.Konami
 
 

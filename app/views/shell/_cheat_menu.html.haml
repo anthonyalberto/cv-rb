@@ -1,6 +1,7 @@
 #cheat_menu
-  %h3= t(".cheat_title")
-  %p= t(".cheat_description")
-  %ul
-    - CandidateDecorator::SECTIONS.each do |section|
-      %li= link_to section.humanize, "#cheat", data: {cheat: section}, class: "cheat_link"
+  .inner
+    %h3= t(".cheat_title")
+    %p= t(".cheat_description")
+    %ul
+      - CandidateDecorator::SECTIONS.each do |section|
+        %li= link_to section.humanize, "#cheat", data: {cheat: section}, class: "cheat_link"
