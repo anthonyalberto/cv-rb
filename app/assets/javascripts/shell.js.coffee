@@ -96,11 +96,4 @@ $ ->
 
   $("#toggle").on "click", ->
     div = $(".explanations_container")
-    if div.is(':visible')
-      div.slideUp('slow')
-    else
-      div.slideDown('slow')
-
-
-
-
+    if div.is(':visible') then div.slideUp('slow') else div.slideDown('slow')
