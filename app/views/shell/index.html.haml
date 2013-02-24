@@ -1,7 +1,9 @@
 = logout_button
 = render 'cheat_menu'
 
-.subtitle_explanation= t('.title')
+.subtitle_explanation
+  = t('.title')
+  = link_to t(".toggle"), "#toggle", id: "toggle"
 .explanations_container
   %p
     .mini_title= t(".normal")
