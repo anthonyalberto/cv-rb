@@ -6,6 +6,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :phone, null: false
       t.string :current_status
       t.string :current_location
+      t.string :languages
       t.text :general_information
 
       t.timestamps

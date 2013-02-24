@@ -41,6 +41,7 @@ gem 'redcarpet'
 group :development do
   gem 'better_errors', git: "https://github.com/anthonyalberto/better_errors.git"
   gem 'binding_of_caller'
+  gem 'railroady'
 end
 
 group :development, :test do

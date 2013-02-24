@@ -142,6 +142,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railroady (1.1.0)
     rails (3.2.12)
       actionmailer (= 3.2.12)
       actionpack (= 3.2.12)
@@ -244,6 +245,7 @@ DEPENDENCIES
   mocha
   mysql2
   pry-rails
+  railroady
   rails (= 3.2.12)
   redcarpet
   rmagick

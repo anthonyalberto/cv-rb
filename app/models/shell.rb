@@ -24,6 +24,10 @@ class Shell
 
   private
 
+  def last_command
+    @code.split(";").last
+  end
+
   def self.force_ar_readonly
 
     ActiveRecord::Base.class_eval do
@@ -46,10 +50,10 @@ class Shell
     proc {
       ActiveRecord::Base.transaction do
         @result = eval(@code)
-        if @code =~ /puts|print/i
+        if last_command =~ /puts|print/i
           @result = string_io_as_string
           @status = 'print'
-        elsif @code =~ /[^=]=[^=]/
+        elsif last_command =~ /[^=]=[^=]/
           @status = 'assignment'
         else
           @status = 'success'
@@ -105,6 +109,7 @@ class Shell
 
   def check_common_hacks
     raise SecurityError.new("Don't touch my DB!") if @code =~ /update|create|destroy|delete|save/i
+    raise SecurityError.new("No system calls please!") if @code =~ /system|\`|%x/i
     raise SecurityError.new("/!\\ No meta programming, it's dangerous /!\\") if @code =~ /send|method|call/i
     raise SecurityError.new("/!\\ No global variables, it's dangerous /!\\") if @code =~ /\$/ && !Rails.env.test? #We're using it for some tests
   end

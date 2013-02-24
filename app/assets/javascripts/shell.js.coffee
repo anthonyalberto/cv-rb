@@ -86,7 +86,7 @@ $ ->
     Shell.setCommand("") if(e.keyCode == 27)
 
   $("#reset_shell").on "click", (e) ->
-    location.reload()
+    location.reload() if confirm("Are you sure? You're commands will be lost")
 
 
 

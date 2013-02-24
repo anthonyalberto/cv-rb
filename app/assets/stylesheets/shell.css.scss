@@ -44,9 +44,9 @@
 
 }
 
-#reset_shell{
+.top_button{
   float: right;
-  margin-top: 8px;
+  margin: 8px 5px 0px;
 }
 
 #cheat_menu{
@@ -62,3 +62,39 @@
   width: 95%;
   padding: 0 10px;
 }
+.methods_text{
+  color: white;
+}
+
+.success_message{
+  color: #65ff59;
+}
+
+.subtitle_explanation{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mini_title{
+  font-size:14px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.explanations_container{
+  border: 3px solid black;
+  border-radius: 5px;
+  padding: 6px;
+  margin-bottom: 15px;
+}
+
+
+//.explanations_container{
+//  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(0, #eee), color-stop(0.25, #eee), color-stop(0.25, #fff), color-stop(0.5, #fff), color-stop(0.5, #eee), color-stop(0.75, #eee), color-stop(0.75, #fff));
+//  background-image: -webkit-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
+//  background-image: -moz-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
+//  background-image: -ms-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
+//  background-image: -o-linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
+//background-image: linear-gradient(left bottom, #eee 0%, #eee 25%, #fff 25%, #fff 50%, #eee 50%, #eee 75%, #fff 75%);
+//background-size: 30px 30px;
+//  }

@@ -1,4 +1,4 @@
 {
-    "html": <%= raw render_result(@result) %>,
+    "html": <%= raw render_result(@result, @shell.status) %>,
     "status": <%= raw @shell.status.to_json %>
 }

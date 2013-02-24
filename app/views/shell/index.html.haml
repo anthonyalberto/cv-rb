@@ -1,15 +1,30 @@
 = logout_button
 = render 'cheat_menu'
-%h1
-  Rails console
-  = reset_shell_button
+
+.subtitle_explanation Welcome! Rails console explanations
+.explanations_container
+
+
+  %p
+    .mini_title Normal mode
+    Using the Rails console below, you'll be able to view all the sections of my Resume! I suggest following the instructions in the console to view each sections in nicely formatted modal boxes.
+  %p
+    .mini_title God mode
+    If you're not familiar with Ruby, no worries, I got you covered! Activate the cheat menu! Like in every game though, there's a trick to activate cheats. Here, enter the Konami code to make it pop! ↑ ↑ ↓ ↓ ← → ← → b a
+  %p
+    .mini_title Ruby geek mode
+    Finally, You can also follow the "Geek way" by using the Model Schema provided and viewing every ActiveRecord object in the console. I'm automatically passing objects to a function that pretty-prints them so don't call puts/print etc ... Also worth nothing, please don't try to break the server. It's pretty easy if you know what you're doing, but I'd have to redeploy the app! Thanks <3
+= reset_shell_button
+= view_db_schema_button
+
+.clear
 #shell_container
   #log_container
     #log
       .instructions
-        Enter a command below to start
+        Enter a command below to start! We'll start by getting the Candidate in question from ActiveRecord. His name is "Anthony Alberto". Assign it to a variable. Make sure you're assigning the Candidate object, not an ActiveRecord collection. If you're lost at any point, check the DB schema provided, or cheat! Tips: Press Up/Down to go through your latest commands. Press Escape to clear the current command.
   #prompt
     irb(main)>
     = text_field_tag :code, "", id: "command_line", placeholder: "Input your code here!"
     = hidden_field_tag :url, shell_update_path
-
+%br

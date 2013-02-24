@@ -16,10 +16,14 @@ $modal_img_width: 150px;
   width: $modal_width - $modal_img_width - 80;
 }
 
-#popup .modal{
+#popup .modal, #schema.modal{
   width: $modal_width;
   left:50%;
   margin-left: -($modal_width / 2);
+}
+
+.modal-body{
+  max-height: 500px;
 }
 
 .modal-body h3{
@@ -57,3 +61,6 @@ $modal_img_width: 150px;
   text-align: center;
   margin-bottom:25px;
 }
+
+
+
