@@ -16,4 +16,5 @@
 //= require jquery.myshell
 //= require underscore
 //= require twitter/bootstrap
+//= require i18n/translations
 //= require_tree .

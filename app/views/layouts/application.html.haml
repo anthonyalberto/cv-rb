@@ -4,7 +4,7 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    %title= content_for?(:title) ? yield(:title) : "CvRb"
+    %title= t(:meta_title)
     = csrf_meta_tags
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
@@ -23,7 +23,7 @@
       .topbar-inner
         .container-fluid
           .row-fluid
-            .brand irb> Candidate.includes(:cats).where(name: "Anthony Alberto").first.shopify_cv
+            .brand= t(:title)
             = yield(:logout)
 
     .clear
@@ -32,8 +32,8 @@
         = yield(:cheat_menu)
         = bootstrap_flash
         = yield
-    %footer
-      &copy; Anthony Alberto 2013
+    %footer= t(:copyright)
+
 
     = fork_me_tag
     #popup
@@ -45,3 +45,4 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
+    = render '/layouts/setup_js_i18n'

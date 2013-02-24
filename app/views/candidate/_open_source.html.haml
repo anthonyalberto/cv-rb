@@ -2,7 +2,7 @@
 = modal_tag do
   = modal_header do
     = modal_image_tag :open_source
-    %h2.title Open Source Contributions
+    %h2.title= t("candidate.title.open_source")
     .clear
   = modal_body do
     - candidate.open_source_projects.each do |o|

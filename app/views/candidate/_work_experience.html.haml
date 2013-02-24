@@ -2,7 +2,7 @@
 = modal_tag do
   = modal_header do
     = modal_image_tag :work_experience
-    %h2.title Work Experience
+    %h2.title= t("candidate.title.work_experience")
     .clear
   = modal_body do
     - candidate.experiences.each do |w|

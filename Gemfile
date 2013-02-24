@@ -37,6 +37,7 @@ gem 'pry-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'seed-fu'
 gem 'redcarpet'
+gem 'i18n-js', :git => "git://github.com/fnando/i18n-js.git", :branch => "rewrite"
 
 group :development do
   gem 'better_errors', git: "https://github.com/anthonyalberto/better_errors.git"

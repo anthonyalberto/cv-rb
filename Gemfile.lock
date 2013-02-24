@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/fnando/i18n-js.git
+  revision: 689f4d709285cccfef9f5e10b295d9b2fe63d519
+  branch: rewrite
+  specs:
+    i18n-js (3.0.0.rc3)
+      i18n
+
+GIT
   remote: https://github.com/anthonyalberto/better_errors.git
   revision: 84c2e5496a4f2ba96f97410d694066f35ad21801
   specs:
@@ -238,6 +246,7 @@ DEPENDENCIES
   font-awesome-rails
   haml-rails
   headless
+  i18n-js!
   jquery-rails
   jquery_ujs_extended
   kaminari

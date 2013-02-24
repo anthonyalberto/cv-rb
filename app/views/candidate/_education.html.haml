@@ -2,11 +2,11 @@
 = modal_tag do
   = modal_header do
     = modal_image_tag :education
-    %h2.title Education
+    %h2.title= t("candidate.title.education")
     .clear
   = modal_body do
     - candidate.educations.each do |e|
       .body_block
         %h3= e.name
-        %p.subtitle= "From #{e.year_from} to #{e.year_to}"
+        %p.subtitle= t("candidate.date_range", from: e.year_from, to: e.year_to)
         %p= e.description

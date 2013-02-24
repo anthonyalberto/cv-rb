@@ -71,13 +71,13 @@ class Shell
         check_common_hacks
         yield
       rescue SecurityError => e
-        @result = SecurityError.new("Gotcha! Hackers gonna hack => #{e.message}")
+        @result = SecurityError.new("#{I18n.t("shell.exceptions.security")} => #{e.message}")
         @status = "exception"
       rescue SyntaxError => e
-        @result = SyntaxError.new("Syntax Error => #{e.message}")
+        @result = SyntaxError.new("#{I18n.t("shell.exceptions.syntax")} => #{e.message}")
         @status = "exception"
       rescue Exception => e
-        @result = Exception.new("Unknown exception => #{e.message}")
+        @result = Exception.new("#{I18n.t("shell.exceptions.unknown")} =>  #{e.message}")
         @status = "exception"
       end
     end
@@ -108,10 +108,10 @@ class Shell
   end
 
   def check_common_hacks
-    raise SecurityError.new("Don't touch my DB!") if @code =~ /update|create|destroy|delete|save/i
-    raise SecurityError.new("No system calls please!") if @code =~ /system|\`|%x/i
-    raise SecurityError.new("/!\\ No meta programming, it's dangerous /!\\") if @code =~ /send|method|call/i
-    raise SecurityError.new("/!\\ No global variables, it's dangerous /!\\") if @code =~ /\$/ && !Rails.env.test? #We're using it for some tests
+    raise SecurityError.new(I18n.t("shell.exceptions.db")) if @code =~ /update|create|destroy|delete|save/i
+    raise SecurityError.new(I18n.t("shell.exceptions.system")) if @code =~ /system|\`|%x/i
+    raise SecurityError.new(I18n.t("shell.exceptions.meta")) if @code =~ /send|method|call|eval/i
+    raise SecurityError.new(I18n.t("shell.exceptions.global")) if @code =~ /\$/ && !Rails.env.test? #We're using it for some tests
   end
 
 end

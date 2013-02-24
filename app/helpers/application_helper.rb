@@ -6,18 +6,18 @@ module ApplicationHelper
       return result.to_json
     elsif result.is_a? CandidateDecorator
       if status == "assignment"
-        instructions = success("Alright. Let's find out what methods are available on this handy decorator. Call the 'sections' method on your decorator variable to find out.")
+        instructions = success(t("shell.instructions.decorator_success"))
       else
-        instructions = "Almost! Make sure you assign the decorator to a variable. For example, decorator = candidate.decorate"
+        instructions = t("shell.instructions.decorator_hint")
       end
     elsif result.is_a? Candidate
       if status == "assignment"
-        instructions = success("Great! Now, let's instantiate a decorator that will allow us to format our data. To do this, simply call the 'decorate' method on your candidate variable and store the result in a variable.")
+        instructions = success(t("shell.instructions.candidate_success"))
       else
-        instructions = "Almost! Make sure you assign the Candidate to a variable. For example, candidate = Candidate..."
+        instructions = t("shell.instructions.candidate_hint")
       end
     elsif result.is_a? ActiveRecord::Relation
-      instructions = "Make sure you call the 'first' method on the collection returned by the 'where' method."
+      instructions = t("shell.instructions.collection_hint")
     end
     (render_object(result) + instructions { instructions }).to_json
   end
@@ -42,16 +42,16 @@ module ApplicationHelper
 
   def logout_button
     content_for(:logout) do
-      link_to "Logout", destroy_recruiter_session_path, method: :delete, class: "btn", id: "logout"
+      link_to t("shell.index.logout"), destroy_recruiter_session_path, method: :delete, class: "btn", id: "logout"
     end
   end
 
   def reset_shell_button
-    link_to "Reset Shell", "#reset", class: "btn btn-danger top_button", id: "reset_shell"
+    link_to t("shell.index.reset"), "#reset", class: "btn btn-danger top_button", id: "reset_shell"
   end
 
   def view_db_schema_button
-    link_to "DB Schema", asset_path("schema.svg"), target: "_blank", class: "btn top_button"
+    link_to t("shell.index.db_schema"), asset_path("schema.svg"), target: "_blank", class: "btn top_button"
   end
 
   def instructions

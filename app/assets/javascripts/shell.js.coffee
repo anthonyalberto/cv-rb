@@ -63,7 +63,7 @@ $ ->
                Shell.history.replayCommands.push command if jsonData.status == "assignment"
                Shell.history.currentIndex = Shell.history.commands.length
              error: (e) ->
-               $("div#log").append("<br/>irb(main)> #{command}<br/><div class='console_error'>Wooow something bad happened, what did you try??</div>").scrollBottom()
+               $("div#log").append("<br/>irb(main)> #{command}<br/><div class='console_error'>#{I18n.t("shell.instructions.error")}</div>").scrollBottom()
              complete: ->
                $("input#command_line").val("")
                Shell.submitted = false
@@ -86,7 +86,7 @@ $ ->
     Shell.setCommand("") if(e.keyCode == 27)
 
   $("#reset_shell").on "click", (e) ->
-    location.reload() if confirm("Are you sure? You're commands will be lost")
+    location.reload() if confirm(I18n.t("shell.index.reset_confirmation"))
 
 
 

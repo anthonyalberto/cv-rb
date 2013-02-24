@@ -2,10 +2,10 @@
 = modal_tag do
   = modal_header do
     = modal_image_tag :funny_links
-    %h2.title Funny Links!
+    %h2.title= t("candidate.title.funny_links")
     .clear
   = modal_body do
-    %p= "Here's a few things I found funny lately ... I hope you enjoy it :)"
+    %p= t("candidate.funny_explanation")
     %ul
       - candidate.funny_links.each do |f|
         %li= link_to f.name, f.url, target: "_blank"
