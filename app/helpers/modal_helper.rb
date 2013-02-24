@@ -1,7 +1,7 @@
 module ModalHelper
 
-  def modal_tag(id = "")
-    content_tag "div", class: "modal hide fade", id: id do
+  def modal_tag(options = {})
+    content_tag "div", class: "modal hide fade #{options[:class]}" do
       yield
     end
   end

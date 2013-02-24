@@ -25,7 +25,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'haml-rails', :group => :development
+gem 'haml-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'kaminari'
@@ -54,9 +54,9 @@ end
 group :test do
   gem "faker"
   gem "capybara"
+  gem "capybara-webkit"
   gem 'email_spec'
   gem 'headless'
   gem "database_cleaner"
-  gem "mocha"
 
 end
