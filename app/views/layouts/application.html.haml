@@ -19,20 +19,23 @@
 
 
   %body
+
     .topbar
       .topbar-inner
-        .container-fluid
-          .row-fluid
-            .brand= t(:title)
-            = yield(:logout)
+        .wrapper
+          .container-fluid
+            .row-fluid
+              .brand= t(:title)
+              = yield(:logout)
 
     .clear
-    .container-fluid#main
-      .row-fluid
-        = yield(:cheat_menu)
-        = bootstrap_flash
-        = yield
-    %footer= t(:copyright)
+    .wrapper
+      .container-fluid#main
+        .row-fluid
+          = yield(:cheat_menu)
+          = bootstrap_flash
+          = yield
+    %footer= t(:copyright_html)
 
 
     = fork_me_tag

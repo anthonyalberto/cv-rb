@@ -1,0 +1,13 @@
+/ decorator_modal
+= modal_tag do
+  = modal_header do
+    = modal_image_tag :credits
+    %h2.title= t("candidate.title.credits")
+    .clear
+  = modal_body do
+    %p= t("candidate.credits.description")
+    %p
+      .subtitle_explanation= t("candidate.credits.thanks_to")
+      %ul
+        - (1..4).each do |i|
+          %li= t("candidate.credits.thank#{i}")

@@ -88,6 +88,12 @@ $ ->
   $("#reset_shell").on "click", (e) ->
     location.reload() if confirm(I18n.t("shell.index.reset_confirmation"))
 
+  $(".cheat_link").on("click", ->
+    action = $(@).data("cheat");
+    Shell.setCommand("Candidate.where(name: 'Anthony Alberto').first.decorate.#{action}")
+    Shell.submitCode()
+  )
+
 
 
 

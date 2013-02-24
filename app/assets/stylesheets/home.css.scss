@@ -1,75 +1,88 @@
 @import "globals";
 
-body, input, select, textarea, button{
+body, input, select, textarea, button {
   font-family: 'Inconsolata', sans-serif;
 }
 
-#fork_me img{
+
+#fork_me img {
   position: absolute;
   top: 0;
   right: 0;
   border: 0;
 }
 
-#logout{
+#logout {
   position: absolute;
   top: 15px;
   right: 15px;
 }
 
-.topbar{
+.topbar {
   background-color: $dark_back;
   margin-bottom: 30px;
+  height: $topbar_height;
 }
-.topbar .brand{
-  font-size:18px;
-  font-weight:bold;
-  color:white;
+
+.topbar .brand {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
 }
-.topbar .row-fluid{
-  margin:20px 0px 10px;
+
+.topbar .row-fluid {
+  margin: 20px 0px 10px;
 
 }
-.topbar .container-fluid{
+
+.topbar .container-fluid {
   position: relative;
 }
-.topbar-inner{
+
+.topbar-inner {
   margin: 0 auto;
 }
-.container-fluid{
+.wrapper{
+  padding:0 ($cheat_menu_width + $cheat_menu_padding * 2);
+}
+.container-fluid {
   width: 1000px;
   margin: 0 auto;
 }
-.container-fluid#main{
+
+.container-fluid#main {
   margin-bottom: 50px;
 }
-#intro_shell{
+
+#intro_shell {
   height: 70px;
   line-height: 23px;
   vertical-align: middle;
   background-color: $shell_back;
-  color:white;
+  color: white;
   padding: 20px;
   box-shadow: 10px 10px 5px #888;
   margin-bottom: 50px;
 
 }
 
-#intro_shell #command_input, #intro_shell #prompt{
+#intro_shell #command_input, #intro_shell #prompt {
   float: left;
 }
-#intro_shell #cursor{
+
+#intro_shell #cursor {
   display: inline-block;
-  width:10px;
-  height:15px;
+  width: 10px;
+  height: 15px;
   background-color: $cursor_color;
   vertical-align: text-bottom;
 }
 
-.clear{
+.clear {
   clear: both;
 }
 
-footer{
+footer {
   text-align: center;
 }
+
