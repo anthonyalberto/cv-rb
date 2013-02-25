@@ -2,6 +2,7 @@ cv-rb
 =====
 
 # Small interative rails console (authentication required)  
+Dependency : install `apt-get install libicu48`   
 
 ## Running tests and launching the app
 * `bundle install`  
