@@ -9,7 +9,13 @@ $ ->
       Konami.triggerMenu() if Konami.konamiBuffer.toString() == Konami.konamiSequence
 
     triggerMenu: ->
-      new Audio("/sounds/pacman.wav").play();
+      try
+        if /webkit|msie/i.test(navigator.userAgent)
+          new Audio("/sounds/pacman.mp3").play()
+        else
+          new Audio("/sounds/pacman.wav").play()
+      catch err
+        #Safari 5 on Windows fail
       Shell.setCommand("")
       $("#cheat_menu").fadeIn(3000)
   #End window.Konami

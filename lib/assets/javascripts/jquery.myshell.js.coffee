@@ -1,10 +1,5 @@
 window.myFnShell ||= {}
-window.myStaticShell ||= {}
 $ ->
-
-  myStaticShell.myShell =
-    carriageReturn: (prompt, commandLine) ->
-      commandLine.append("<br/>")
 
   myFnShell.myShell =
     scrollBottom: ->
@@ -25,9 +20,11 @@ $ ->
           letter = splittedText.shift()
           element.children("#line").append letter
         , options['totalDelay']
-      setTimeout($.carriageReturn, options['totalDelay'] + 50, element.siblings("#prompt"), element.children("#line")) if options['carriageReturn'] != "false"
+      if options['carriageReturn'] != "false"
+        setTimeout(->
+          element.children("#line").append("<br/>")
+        , options['totalDelay'] + 50)
       options['totalDelay']
   #End myFnShell.mySHell
 
   $.fn.extend(myFnShell.myShell)
-  $.extend(myStaticShell.myShell)
