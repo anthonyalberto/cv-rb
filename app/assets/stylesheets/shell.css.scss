@@ -50,8 +50,10 @@
 }
 
 #cheat_menu{
+  background: white;
+  padding: 0 $cheat_menu_padding;
+  z-index: 10;
   display: none;
-  padding: $topbar_height $cheat_menu_padding;
   position: fixed;
   left: 0;
   top: 0;
@@ -61,14 +63,13 @@
 }
 #cheat_menu .inner{
   background: url(image-path('space-invader4.jpg')) repeat-y;
-  position: fixed;
+  background-position-x: 17px;
+  bottom: 0;
   left: 0;
   top: 0;
-  bottom: 0;
-  padding: 0 $cheat_menu_padding;
-  margin: $topbar_height 0 0;
+  position: fixed;
   width: $cheat_menu_width;
-  background-position-x: 17px;
+  padding: 0 $cheat_menu_padding;
 }
 .instructions{
   background-color:#3c4c4d;

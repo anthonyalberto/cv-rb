@@ -1,5 +1,7 @@
 @import "globals";
-
+body{
+  min-width: 1200px;
+}
 body, input, select, textarea, button {
   font-family: 'Inconsolata', sans-serif;
 }
