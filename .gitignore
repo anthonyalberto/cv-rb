@@ -16,3 +16,5 @@
 config/database.yml
 db/seeds.rb
 .idea
+public/assets
+public/uploads
