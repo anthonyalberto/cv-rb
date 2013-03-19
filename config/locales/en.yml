@@ -1,0 +1,77 @@
+en:
+  meta_title: Anthony's IRB CV
+  title: "irb> Candidate.includes(:cats).where(name: \"Anthony Alberto\").first.cv"
+  copyright_html: "&copy; Anthony Alberto 2013"
+  login:
+    console1: puts "Welcome to the interactive IRB resume console I built for you!"
+    console2: puts "Authentication is required since you'll be playing with a real irb/rails console."
+    console3: puts "Have fun!"
+
+  shell:
+    index:
+      logout: "Logout"
+      reset: "Reset Shell"
+      reset_confirmation: "Are you sure? Your commands will be lost"
+      db_schema: "DB Schema"
+      title: Welcome! Rails console explanations
+      normal: Normal mode
+      god: God mode
+      ruby_geek: Ruby Geek mode
+      normal_explanation: Using the Rails console below, you'll be able to view all the sections of my Resume (and related pictures of my cats!). I suggest following the instructions in the console to view each sections in nicely formatted modal boxes.
+      god_explanation: "If you're not familiar with Ruby, no worries, I got you covered! Activate the cheat menu! Like in every game though, there's a trick to activate cheats. Here, enter the Konami code to make it pop! ↑ ↑ ↓ ↓ ← → ← → b a"
+      ruby_geek_explanation: "Finally, You can also follow the \"Geek way\" by using the Model Schema provided and viewing every ActiveRecord object in the console. I'm automatically passing objects to a function that pretty-prints them so don't call puts/print etc ... Also worth noting, please don't try to break the server. It's pretty easy if you know what you're doing, but I'd have to redeploy the app! Thanks <3"
+      placeholder: "Input your code here!"
+      toggle: "(Show/Hide)"
+
+    cheat_menu:
+      cheat_title: "Cheat menu"
+      cheat_description: "If you'd like to take it easy, click on each link below to view each sections of the resume."
+
+    exceptions:
+      security: "Gotcha! Hackers gonna hack"
+      syntax: "Syntax Error"
+      unknown: "Unkown Error"
+      db: "Don't touch my DB!"
+      system: "No system calls pleaaaase!"
+      meta: "/!\\ No meta programming, it's dangerous /!\\"
+      global: "/!\\ No global variables, it's dangerous /!\\"
+
+    instructions:
+      title_cheat: "This is just the title of the website! You'll have to work using your ruby skills to get it :)"
+      start: "Enter a command below to start! We'll start by getting the Candidate in question from ActiveRecord. His name is \"Anthony Alberto\". Assign it to a variable. Make sure you're assigning the Candidate object, not an ActiveRecord collection. If you're lost at any point, check the DB schema provided, or cheat! Tips: Press Up/Down to go through your latest commands. Press Escape to clear the current command."
+      sections_success: "Looks like we'll finally access the resume! Methods available on your decorator : %{sections}. Call them one by one to view the full Resume. When you're done, contact the candidate, and schedule an interview :)"
+      decorator_success: "Alright. Let's find out what methods are available on this handy decorator. Call the 'sections' method on your decorator variable to find out."
+      decorator_hint: "Almost! Make sure you assign the decorator to a variable. For example, decorator = candidate.decorate"
+      candidate_success: "Great! Now, let's instantiate a decorator that will allow us to format our data. To do this, simply call the 'decorate' method on your candidate variable and store the result in a variable."
+      candidate_hint: "Almost! Make sure you assign the Candidate to a variable. For example, candidate = Candidate..."
+      collection_hint: "Make sure you call the 'first' method on the collection returned by the 'where' method."
+      error: "Wooow something bad happened, what did you try??"
+
+  candidate:
+    credits:
+      thanks_to: "Thanks to:"
+      description: "Hey! You made it through! Thanks for playing with my app. I hope you had as much fun as I did building it :) Talk to you soon!"
+      thank1: "My girlfriend for letting me build this website during evenings!"
+      thank2: "Oreo (aka Miniwu) for illustrations"
+      thank3: "Domino, for illustrations"
+      thank4: "And you for using it!"
+
+    title:
+      cats: Cats
+      education: Education
+      funny_links: Funny Links!
+      hobbies: Hobbies
+      internet_profiles: Internet Profiles
+      open_source: Open Source Contributions
+      skills: Skills
+      work_experience: Work Experience
+      credits: Credits
+
+    languages: "Languages:"
+    current_location: "Current Location:"
+    current_status: "Current Status:"
+    breed: "Breed:"
+    email: "Email:"
+    phone: "Phone:"
+    date_range: "From %{from} to %{to}"
+    funny_explanation: "Here's a few things I found funny lately ... I hope you'll enjoy it :)"
