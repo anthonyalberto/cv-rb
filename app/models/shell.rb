@@ -109,7 +109,7 @@ class Shell
 
   def check_common_hacks
     raise SecurityError.new(I18n.t("shell.exceptions.db")) if @code =~ /update|create|destroy|delete|save/i
-    raise SecurityError.new(I18n.t("shell.exceptions.system")) if @code =~ /system|\`|%x|File|IO|Dir|syscall|exec/
+    raise SecurityError.new(I18n.t("shell.exceptions.system")) if @code =~ /system|\`|%x|File|IO|Dir|syscall|exec|Open3/
     raise SecurityError.new(I18n.t("shell.exceptions.meta")) if @code =~ /send|method|call|eval|constantize|const_get/i
     raise SecurityError.new(I18n.t("shell.exceptions.global")) if @code =~ /\$/ && !Rails.env.test? #We're using it for some tests
   end
